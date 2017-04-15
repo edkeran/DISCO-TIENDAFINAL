@@ -22,12 +22,17 @@ public class NodoArtista {
 
     public NodoArtista() {
     }
-    private void nuevoDisco (String nombreD, int año, double precio ){
+    public void nuevoDisco (String nombreD, String año, double precio ){
         aux = new NodoDisco();
         aux.setPrecio(precio);
         aux.setNombreDisco(nombreD);
         aux.setAño(año);
         discos.add(aux);
+    }
+    public void buscarDiscos(){
+        for (NodoDisco ayu: discos){
+            System.out.println(ayu.getNombreDisco());
+        }
     }
     public String getDireccionImagen() {
         return direccionImagen;
@@ -59,6 +64,14 @@ public class NodoArtista {
 
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
+    }
+
+    public List<NodoDisco> getDiscos() {
+        return discos;
+    }
+
+    public void setDiscos(List<NodoDisco> discos) {
+        this.discos = discos;
     }
         
 }

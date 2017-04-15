@@ -15,7 +15,7 @@ import java.util.List;
 public class NodoDisco {
     private double precio;
     private String nombreDisco;
-    private int año;
+    private String año;
     NodoCanciones cancion;
     List <NodoCanciones> canciones = new ArrayList<NodoCanciones>();
 
@@ -35,11 +35,11 @@ public class NodoDisco {
         this.nombreDisco = nombreDisco;
     }
 
-    public int getAño() {
+    public String getAño() {
         return año;
     }
 
-    public void setAño(int año) {
+    public void setAño(String año) {
         this.año = año;
     }
     

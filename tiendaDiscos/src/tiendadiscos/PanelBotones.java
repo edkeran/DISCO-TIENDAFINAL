@@ -24,6 +24,8 @@ public class PanelBotones extends JPanel implements ActionListener{
         private JButton btnComprarDisco;
     
         private JButton btnNuevoArtista;
+        
+        private JButton btnNuevaCancion;
     
         private JButton btnComprarCancion;
         
@@ -32,6 +34,8 @@ public class PanelBotones extends JPanel implements ActionListener{
         private static final String NUEVO = "ARTISTA";
     
         private static final String DISCO = "DISCOS";
+        
+        private static final String NUEVACANCION="Cancion Nueva";
 
         private static final String CANCION = "CANCIONES";
         
@@ -54,6 +58,11 @@ public class PanelBotones extends JPanel implements ActionListener{
         btnComprarDisco.addActionListener(this);
         add(btnComprarDisco);
         
+        btnNuevaCancion= new JButton("AÑADIR CANCION");
+        btnNuevaCancion.setActionCommand(NUEVACANCION);
+        btnNuevaCancion.addActionListener(this);
+        add(btnNuevaCancion);
+        
         btnComprarCancion = new JButton("COMPRAR DISCO");
         btnComprarCancion.setActionCommand(CANCION);
         btnComprarCancion.addActionListener(this);
@@ -73,15 +82,17 @@ public class PanelBotones extends JPanel implements ActionListener{
                 DialogoArtista a =new DialogoArtista(menu);
                 break;
             case DISCO:
-                System.out.print("Imprimio boton comprar disco");
+                System.out.print("Imprimio boton nuevo disco");
                 DialogoDisco b= new DialogoDisco(menu);
                 break;        
             case CANCION:
-                System.out.print("Imprimio boton compara cancion");
+                System.out.print("Imprimio boton comprar disco");
                 break;
             case NDisco:
-                System.out.print("Imprimio boton nuevo disco");
+                System.out.print("Imprimio boton comprar cancion");
                 break;
+            case NUEVACANCION:
+                System.out.printf("Imprimio nueva cancion");
         }
     }
 

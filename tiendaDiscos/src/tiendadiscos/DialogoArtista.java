@@ -34,39 +34,53 @@ public class DialogoArtista extends JDialog implements ActionListener {
     PanelDialogo a; 
     public DialogoArtista(menuPrincipal aux) {
         menuP=aux;
-        setVisible(true);
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setTitle("INGRESAR DATOS DEL ARTISTA");
-        setSize(600,600);
+        setSize(400,400);
         setLocationRelativeTo(null);
         generarDialogo(); 
-        
+        setVisible(true);
     }
     private void generarDialogo(){
-        ImageIcon a= new ImageIcon("imagenes/Notas1.PNG");
-        k= new JLabel();
-        k.setIcon(a);
-        setLayout(new GridLayout(18,0));
+        //setLayout(new GridLayout(18,0));
+        getContentPane().setLayout(null);
         caja1 = new JTextField();
         caja2 = new JTextField();
         caja3 = new JTextField();
         caja4 = new JTextField();
         etiquetacaja1= new JLabel("INGRESE EL NOMBRE DEL ARTISTA");
+        etiquetacaja1.setForeground(Color.BLUE);
         etiquetacaja2= new JLabel("INGRESE EL GENERO CON EL QUE SE IDENTIFICA EL ARTISTA");
+        etiquetacaja2.setForeground(Color.BLUE);
         etiquetacaja3= new JLabel("INGRESE LA NACIONALIDAD DEL ARTISTA");
+        etiquetacaja3.setForeground(Color.BLUE);
         etiquetacaja4= new JLabel("INGRESE LA DIRECCION DE LA IMAGEN");
+        etiquetacaja4.setForeground(Color.BLUE);
         lectura= new JButton("LEER INFORMACION");
         lectura.addActionListener(this);
-        add(k,BorderLayout.NORTH);
-        add(etiquetacaja1,BorderLayout.NORTH);
-        add(caja1,BorderLayout.NORTH);
-        add(etiquetacaja2,BorderLayout.NORTH);
-        add(caja2,BorderLayout.NORTH);
-        add(etiquetacaja3,BorderLayout.NORTH);
-        add(caja3,BorderLayout.NORTH);
-        add(etiquetacaja4,BorderLayout.NORTH);
-        add(caja4,BorderLayout.NORTH);
-        add(lectura,BorderLayout.NORTH);
+        getContentPane().add(etiquetacaja1,BorderLayout.NORTH);
+        etiquetacaja1.setBounds(0, 0, 200, 17);
+        getContentPane().add(caja1,BorderLayout.NORTH);
+        caja1.setBounds(0, 26, 400, 23);
+        getContentPane().add(etiquetacaja2,BorderLayout.NORTH);
+        etiquetacaja2.setBounds(0,55,400,17);
+        getContentPane().add(caja2,BorderLayout.NORTH);
+        caja2.setBounds(0,72,400,23);
+        getContentPane().add(etiquetacaja3,BorderLayout.NORTH);
+        etiquetacaja3.setBounds(0,115, 400, 23);
+        getContentPane().add(caja3,BorderLayout.NORTH);
+        caja3.setBounds(0,148,400, 23);
+        getContentPane().add(etiquetacaja4,BorderLayout.NORTH);
+        etiquetacaja4.setBounds(0,181, 400, 23);
+        getContentPane().add(caja4,BorderLayout.NORTH);
+        caja4.setBounds(0, 214, 400, 23);
+        getContentPane().add(lectura,BorderLayout.NORTH);
+        lectura.setBounds(100, 247, 200, 23);
+        ImageIcon a= new ImageIcon("imagenes/notas-musicales.PNG");
+        k= new JLabel();
+        k.setIcon(new ImageIcon(a.getImage().getScaledInstance(400,400,Image.SCALE_SMOOTH)));
+        getContentPane().add(k);
+        k.setBounds(0, 0, 400,400);
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
