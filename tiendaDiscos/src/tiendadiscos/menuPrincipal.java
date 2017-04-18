@@ -42,5 +42,13 @@ public class menuPrincipal extends JFrame {
         a.setDireccionImagen(imagen);
         artistas.add(a);
     }
+
+    public double getPago() {
+        return pago;
+    }
+
+    public void setPago(double pago) {
+        this.pago += pago;
+    }
       
 }

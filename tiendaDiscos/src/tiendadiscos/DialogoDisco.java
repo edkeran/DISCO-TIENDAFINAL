@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  * @author EDGAR
@@ -26,7 +27,7 @@ public class DialogoDisco extends JDialog implements ActionListener{
         menuPrin=aux;
         art=new comboBox();
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        setLayout(new GridLayout(6, 1));
+        setLayout(new GridLayout(2, 1));
         for (NodoArtista a:menuPrin.artistas){
             nombre=a.getNombreArtista();
             art.añadirItem(nombre);
@@ -35,7 +36,7 @@ public class DialogoDisco extends JDialog implements ActionListener{
         seleccion.addActionListener(this);
         add(seleccion);
         setTitle("Artistas Disponibles");
-        setSize(600,600);
+        setSize(400,200);
         add(art,BorderLayout.NORTH);
         add(seleccion,BorderLayout.NORTH);
         setVisible(true);
@@ -44,9 +45,14 @@ public class DialogoDisco extends JDialog implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         nombre=art.getSelectedItem().toString();
-        DialogoNuevoDisco a = new DialogoNuevoDisco(menuPrin,nombre);
-        setVisible(false);
-        dispose();
+        if (nombre=="--------"){
+            JOptionPane.showMessageDialog(this, "OPCION NO VALIDA", "MENSAJE", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+             DialogoNuevoDisco a = new DialogoNuevoDisco(menuPrin,nombre);
+             setVisible(false);
+             dispose();
+        }
     }
     
 }

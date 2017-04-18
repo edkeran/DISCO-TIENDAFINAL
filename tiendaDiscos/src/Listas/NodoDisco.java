@@ -17,8 +17,22 @@ public class NodoDisco {
     private String nombreDisco;
     private String año;
     NodoCanciones cancion;
+    private NodoCanciones aux;
     List <NodoCanciones> canciones = new ArrayList<NodoCanciones>();
-
+    
+    
+    public void nuevaCancion(String nombreC,String duracion,double prec){
+        aux= new NodoCanciones();
+        aux.setNombreCancion(nombreC);
+        aux.setPrecio(prec);
+        aux.setDuracion(duracion);
+        canciones.add(aux);
+    }
+    public void buscarCanciones(){
+        for (NodoCanciones ayu: canciones){
+            System.out.println(ayu.getNombreCancion());
+        }
+    }
     public double getPrecio() {
         return precio;
     }
@@ -42,5 +56,14 @@ public class NodoDisco {
     public void setAño(String año) {
         this.año = año;
     }
+
+    public List<NodoCanciones> getCanciones() {
+        return canciones;
+    }
+
+    public void setCanciones(List<NodoCanciones> canciones) {
+        this.canciones = canciones;
+    }
+    
     
 }

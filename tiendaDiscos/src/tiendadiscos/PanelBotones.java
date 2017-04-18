@@ -87,12 +87,15 @@ public class PanelBotones extends JPanel implements ActionListener{
                 break;        
             case CANCION:
                 System.out.print("Imprimio boton comprar disco");
+                DialogoComprarDisco c= new DialogoComprarDisco(menu);
                 break;
             case NDisco:
                 System.out.print("Imprimio boton comprar cancion");
+                DialogoComprarCancion d= new DialogoComprarCancion(menu);
                 break;
             case NUEVACANCION:
                 System.out.printf("Imprimio nueva cancion");
+                DialogoCanciones g= new DialogoCanciones(menu); 
         }
     }
 

@@ -1,7 +1,12 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package tiendadiscos;
 
 import Listas.NodoArtista;
+import Listas.NodoCanciones;
 import Listas.NodoDisco;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -11,16 +16,24 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-public class DialogoCanciones extends JDialog implements ActionListener {
+/**
+ *
+ * @author EDGAR
+ */
+
+
+public class DialogoComprarCancion extends JDialog implements ActionListener {
     private menuPrincipal menuPrin;
     private String nombre;
     private comboBox art;
     private JButton seleccion;
     private JButton disco;
+    private JButton cancion;
     NodoArtista artista1;
     private static final String disc= "disco";
     private static final String artista="artista"; 
-    public DialogoCanciones(menuPrincipal aux) {
+    private static final String cancio="musica";
+    public DialogoComprarCancion(menuPrincipal aux) {
         menuPrin=aux;
         art=new comboBox();
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -63,6 +76,32 @@ public class DialogoCanciones extends JDialog implements ActionListener {
         setVisible(true);
         repaint();
     }
+    private void PintarCanciones(String disco){
+        String aux;
+        art=new comboBox();
+        setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        setLayout(new GridLayout(6, 1));
+        cancion= new JButton("PRESIONE PARA ELEGIR CANCION");
+        for (NodoArtista a:menuPrin.artistas){
+            if (nombre==a.getNombreArtista()){
+                for (NodoDisco g: a.discos){
+                       if (g.getNombreDisco()==disco){
+                           for (NodoCanciones k: g.getCanciones()){
+                               aux=k.getNombreCancion();
+                               art.añadirItem(aux);
+                           }
+                       }
+                }
+            }
+        }
+        setSize(600,600);
+        add(art,BorderLayout.NORTH);
+        cancion.addActionListener(this);
+        cancion.setActionCommand(cancio);
+        add(cancion,BorderLayout.NORTH);
+        setVisible(true);
+        repaint();
+    }
     @Override
     public void actionPerformed(ActionEvent ae) {
         switch (ae.getActionCommand()){
@@ -78,18 +117,14 @@ public class DialogoCanciones extends JDialog implements ActionListener {
                 break;
             case disc:
                 String NombreDisco;
-                NombreDisco=art.getSelectedItem().toString();
-                if(NombreDisco=="--------"){
-                    JOptionPane.showMessageDialog(this, "OPCION NO VALIDA", "MENSAJE", JOptionPane.ERROR_MESSAGE);
-                }
-                else{
-                    System.out.println(NombreDisco);
-                    DialogoNuevaCancion j = new DialogoNuevaCancion(NombreDisco,nombre,menuPrin);
-                    dispose();
-                    setVisible(false);
-                    break;
-                
-            }
+                disco.setEnabled(false);
+                NombreDisco= art.getSelectedItem().toString();
+                PintarCanciones(NombreDisco);
+                break;
+            case cancio:
+                break;
         }
     }
 }
+
+

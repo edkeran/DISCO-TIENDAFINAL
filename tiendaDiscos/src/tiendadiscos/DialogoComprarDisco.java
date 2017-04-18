@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package tiendadiscos;
 
 import Listas.NodoArtista;
@@ -11,7 +15,13 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-public class DialogoCanciones extends JDialog implements ActionListener {
+/**
+ *
+ * @author EDGAR
+ */
+
+
+public class DialogoComprarDisco extends JDialog implements ActionListener {
     private menuPrincipal menuPrin;
     private String nombre;
     private comboBox art;
@@ -20,7 +30,7 @@ public class DialogoCanciones extends JDialog implements ActionListener {
     NodoArtista artista1;
     private static final String disc= "disco";
     private static final String artista="artista"; 
-    public DialogoCanciones(menuPrincipal aux) {
+    public DialogoComprarDisco(menuPrincipal aux) {
         menuPrin=aux;
         art=new comboBox();
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -83,13 +93,20 @@ public class DialogoCanciones extends JDialog implements ActionListener {
                     JOptionPane.showMessageDialog(this, "OPCION NO VALIDA", "MENSAJE", JOptionPane.ERROR_MESSAGE);
                 }
                 else{
-                    System.out.println(NombreDisco);
-                    DialogoNuevaCancion j = new DialogoNuevaCancion(NombreDisco,nombre,menuPrin);
-                    dispose();
-                    setVisible(false);
+                    for (NodoArtista a:menuPrin.artistas){
+                            if (nombre==a.getNombreArtista()){
+                                 for (NodoDisco g: a.discos){
+                                        if (NombreDisco==g.getNombreDisco()){
+                                            JOptionPane.showMessageDialog(this, "EL PRECIO DEL DISCO ES DE:"+g.getPrecio(),"MENSAJE",JOptionPane.INFORMATION_MESSAGE);
+                                            DialogoCompra h= new DialogoCompra(g.getPrecio(),menuPrin,g.getAño(),NombreDisco);
+                                        }
+                                    }
+                                }
+                            }
                     break;
-                
             }
         }
     }
 }
+
+

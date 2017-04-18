@@ -30,7 +30,11 @@ public class DialogoArtista extends JDialog implements ActionListener {
     private JLabel etiquetacaja3;
     private JLabel etiquetacaja4;
     private JLabel k;
+    private JButton prueba;
+    private String imagen;
     private menuPrincipal menuP;
+    private static final String b1="imagen";
+    private static final String b2="lectura";
     PanelDialogo a; 
     public DialogoArtista(menuPrincipal aux) {
         menuP=aux;
@@ -47,16 +51,20 @@ public class DialogoArtista extends JDialog implements ActionListener {
         caja1 = new JTextField();
         caja2 = new JTextField();
         caja3 = new JTextField();
-        caja4 = new JTextField();
+        //caja4 = new JTextField();
         etiquetacaja1= new JLabel("INGRESE EL NOMBRE DEL ARTISTA");
         etiquetacaja1.setForeground(Color.BLUE);
         etiquetacaja2= new JLabel("INGRESE EL GENERO CON EL QUE SE IDENTIFICA EL ARTISTA");
         etiquetacaja2.setForeground(Color.BLUE);
         etiquetacaja3= new JLabel("INGRESE LA NACIONALIDAD DEL ARTISTA");
         etiquetacaja3.setForeground(Color.BLUE);
-        etiquetacaja4= new JLabel("INGRESE LA DIRECCION DE LA IMAGEN");
-        etiquetacaja4.setForeground(Color.BLUE);
+        prueba= new JButton("SELECCIONA IMAGEN");
+        prueba.setActionCommand(b1);
+        prueba.addActionListener(this);
+        getContentPane().add(prueba,BorderLayout.NORTH);
+        prueba.setBounds(0, 180, 300, 23);
         lectura= new JButton("LEER INFORMACION");
+        lectura.setActionCommand(b2);
         lectura.addActionListener(this);
         getContentPane().add(etiquetacaja1,BorderLayout.NORTH);
         etiquetacaja1.setBounds(0, 0, 200, 17);
@@ -70,10 +78,6 @@ public class DialogoArtista extends JDialog implements ActionListener {
         etiquetacaja3.setBounds(0,115, 400, 23);
         getContentPane().add(caja3,BorderLayout.NORTH);
         caja3.setBounds(0,148,400, 23);
-        getContentPane().add(etiquetacaja4,BorderLayout.NORTH);
-        etiquetacaja4.setBounds(0,181, 400, 23);
-        getContentPane().add(caja4,BorderLayout.NORTH);
-        caja4.setBounds(0, 214, 400, 23);
         getContentPane().add(lectura,BorderLayout.NORTH);
         lectura.setBounds(100, 247, 200, 23);
         ImageIcon a= new ImageIcon("imagenes/notas-musicales.PNG");
@@ -84,20 +88,35 @@ public class DialogoArtista extends JDialog implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
-       String nombre;
-       String imagen;
-       String genero;
-       String nacionalidad;
-       nombre=caja1.getText();
-       genero=caja2.getText();
-       nacionalidad=caja3.getText();
-       imagen=caja4.getText();
-       menuP.ponerArtista(nombre, genero, nacionalidad, imagen);
-       setVisible(false);
-       imagenArtista(imagen);
-       dispose();
+       switch(ae.getActionCommand()){
+           case b2:
+            String nombre;
+            String genero;
+            String nacionalidad;
+            nombre=caja1.getText();
+            genero=caja2.getText();
+            nacionalidad=caja3.getText();
+            menuP.ponerArtista(nombre, genero, nacionalidad, imagen);
+            setVisible(false);
+            imagenArtista(imagen);
+            dispose();
+       break;
+           case b1:
+               DialogoBusqueda a= new DialogoBusqueda(this);
+               break;
+       }
+       
     }
-    private void imagenArtista(String imagen){
+    protected void imagenArtista(String imagen){
         a= new PanelDialogo(imagen);
     }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
 }

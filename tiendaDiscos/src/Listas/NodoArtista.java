@@ -18,7 +18,7 @@ public class NodoArtista {
         private String generos;
         private String nacionalidad;
         private NodoDisco aux;
-        List<NodoDisco> discos = new ArrayList<NodoDisco>();
+        public List<NodoDisco> discos = new ArrayList<NodoDisco>();
 
     public NodoArtista() {
     }
