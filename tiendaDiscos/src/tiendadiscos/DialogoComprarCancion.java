@@ -26,6 +26,7 @@ public class DialogoComprarCancion extends JDialog implements ActionListener {
     private menuPrincipal menuPrin;
     private String nombre;
     private comboBox art;
+    private String nombreDisco;
     private JButton seleccion;
     private JButton disco;
     private JButton cancion;
@@ -119,9 +120,26 @@ public class DialogoComprarCancion extends JDialog implements ActionListener {
                 String NombreDisco;
                 disco.setEnabled(false);
                 NombreDisco= art.getSelectedItem().toString();
+                nombreDisco =NombreDisco;
                 PintarCanciones(NombreDisco);
                 break;
             case cancio:
+                String NombreCancion;
+                NombreCancion= art.getSelectedItem().toString();
+                for (NodoArtista a:menuPrin.artistas){
+                if (nombre==a.getNombreArtista()){
+                    for (NodoDisco g: a.discos){
+                           if (g.getNombreDisco()==nombreDisco){
+                               for (NodoCanciones k: g.getCanciones()){
+                                        if (NombreCancion==k.getNombreCancion()){
+                                            JOptionPane.showMessageDialog(this, "EL PRECIO DE LA CANCION ES DE:"+k.getPrecio(),"MENSAJE",JOptionPane.INFORMATION_MESSAGE);
+                                            DialogoCompra h= new DialogoCompra(k.getPrecio(),menuPrin,k.getDuracion(),NombreCancion);
+                                    }
+                               }
+                           }
+                    }
+                }
+            }
                 break;
         }
     }

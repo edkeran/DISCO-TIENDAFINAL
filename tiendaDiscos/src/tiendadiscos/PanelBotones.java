@@ -31,6 +31,10 @@ public class PanelBotones extends JPanel implements ActionListener{
         
         private JButton btnNuevoDisco;
         
+        private JButton btnFinalizarCompra;
+        
+        private static final String FINALIZAR="FIN";
+        
         private static final String NUEVO = "ARTISTA";
     
         private static final String DISCO = "DISCOS";
@@ -72,6 +76,11 @@ public class PanelBotones extends JPanel implements ActionListener{
         btnNuevoDisco.setActionCommand(NDisco);
         btnNuevoDisco.addActionListener(this);
         add(btnNuevoDisco);
+        
+        btnFinalizarCompra= new JButton("GENERAR FACTURA");
+        btnFinalizarCompra.setActionCommand(FINALIZAR);
+        btnFinalizarCompra.addActionListener(this);
+        add(btnFinalizarCompra);
     }
 
     @Override
@@ -96,6 +105,11 @@ public class PanelBotones extends JPanel implements ActionListener{
             case NUEVACANCION:
                 System.out.printf("Imprimio nueva cancion");
                 DialogoCanciones g= new DialogoCanciones(menu); 
+                break;
+            case FINALIZAR:
+                System.out.println("imprimio factura");
+                menu.recibo.visualizar();
+                break;
         }
     }
 

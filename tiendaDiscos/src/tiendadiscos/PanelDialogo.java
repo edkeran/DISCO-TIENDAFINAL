@@ -21,7 +21,7 @@ public class PanelDialogo extends JDialog{
     private JLabel artista;
 
     public PanelDialogo(String dir) {
-        setSize(125,125);
+        setSize(400,400);
         setBackground(Color.WHITE);
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         FlowLayout layout = new FlowLayout();
@@ -30,7 +30,7 @@ public class PanelDialogo extends JDialog{
         setLayout(layout);
         ImageIcon icon = new ImageIcon(dir);        
         artista = new JLabel();
-        artista.setIcon(new ImageIcon(icon.getImage().getScaledInstance(125,125,Image.SCALE_SMOOTH)));
+        artista.setIcon(new ImageIcon(icon.getImage().getScaledInstance(400,400,Image.SCALE_SMOOTH)));
         add(artista);
         setBackground(Color.WHITE);
         setVisible(true);

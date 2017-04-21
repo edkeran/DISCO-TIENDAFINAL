@@ -30,6 +30,7 @@ public class DialogoCompra extends JDialog implements ActionListener{
     JButton cancelar;
     menuPrincipal padre;
     public DialogoCompra(double precio, menuPrincipal ayu,String año,String nombre) {
+        setSize(400,300);
         this.padre=ayu;
         this.nombre=nombre;
         this.año=año;
@@ -59,6 +60,7 @@ public class DialogoCompra extends JDialog implements ActionListener{
        switch (ae.getActionCommand()){
            case comprar:
                padre.setPago(precio);
+               padre.recibo.actualizarRecibo(precio);
                dispose();
                break;
            case cancel:

@@ -6,6 +6,7 @@
 package tiendadiscos;
 
 import Listas.NodoArtista;
+import Listas.NodoCanciones;
 import Listas.NodoDisco;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -93,7 +94,8 @@ public class DialogoComprarDisco extends JDialog implements ActionListener {
                     JOptionPane.showMessageDialog(this, "OPCION NO VALIDA", "MENSAJE", JOptionPane.ERROR_MESSAGE);
                 }
                 else{
-                    for (NodoArtista a:menuPrin.artistas){
+                    if (validarCancion(NombreDisco)){
+                        for (NodoArtista a:menuPrin.artistas){
                             if (nombre==a.getNombreArtista()){
                                  for (NodoDisco g: a.discos){
                                         if (NombreDisco==g.getNombreDisco()){
@@ -103,8 +105,34 @@ public class DialogoComprarDisco extends JDialog implements ActionListener {
                                     }
                                 }
                             }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "EL DISCO NO TIENE CANCIONES", "MENSAJE", JOptionPane.ERROR_MESSAGE);
+                    }
                     break;
             }
+        }
+    }
+    boolean validarCancion(String NombreDisco){
+        int cont=0;
+        for (NodoArtista a:menuPrin.artistas){
+                            if (nombre==a.getNombreArtista()){
+                                 for (NodoDisco g: a.discos){
+                                        if (NombreDisco==g.getNombreDisco()){
+                                            for (NodoCanciones h:g.getCanciones()){
+                                                if (g.getCanciones()!=null){
+                                                    cont++;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+        if (cont==0){
+            return false;
+        }
+        else{
+            return true;
         }
     }
 }

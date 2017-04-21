@@ -19,10 +19,9 @@ import javax.swing.border.LineBorder;
  */
 public class PanelImagen extends JPanel {
     private JLabel imagen;
-   
     
     public PanelImagen() {        
-        setBackground(Color.WHITE);
+        setBackground(Color.GRAY);
         FlowLayout layout = new FlowLayout();
         layout.setHgap(0);
         layout.setVgap(0);
@@ -33,6 +32,20 @@ public class PanelImagen extends JPanel {
         add(imagen);
         setBackground(Color.WHITE);
         setBorder(new LineBorder(Color.GRAY));
+    }
+    public PanelImagen(String dir){
+        setBackground(Color.GRAY);
+        FlowLayout layout = new FlowLayout();
+        layout.setHgap(0);
+        layout.setVgap(0);
+        setLayout(layout);
+        ImageIcon icon = new ImageIcon(dir);        
+        imagen = new JLabel();
+        imagen.setIcon(new ImageIcon(icon.getImage().getScaledInstance(125,125,Image.SCALE_SMOOTH)));
+        add(imagen);
+        setBackground(Color.WHITE);
+        setBorder(new LineBorder(Color.GRAY));
+        repaint();
     }
     
 }

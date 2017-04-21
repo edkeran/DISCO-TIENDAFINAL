@@ -13,8 +13,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 /**
  * @author EDGAR
@@ -24,6 +26,8 @@ public class DialogoArtista extends JDialog implements ActionListener {
     private JTextField caja2;
     private JTextField caja3;
     private JTextField caja4;
+    private JComboBox genero;
+    private JComboBox nacion;
     private JButton lectura;
     private JLabel etiquetacaja1;
     private JLabel etiquetacaja2;
@@ -32,7 +36,7 @@ public class DialogoArtista extends JDialog implements ActionListener {
     private JLabel k;
     private JButton prueba;
     private String imagen;
-    private menuPrincipal menuP;
+    public menuPrincipal menuP;
     private static final String b1="imagen";
     private static final String b2="lectura";
     PanelDialogo a; 
@@ -40,17 +44,18 @@ public class DialogoArtista extends JDialog implements ActionListener {
         menuP=aux;
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         setTitle("INGRESAR DATOS DEL ARTISTA");
-        setSize(400,400);
+        setSize(425,400);
         setLocationRelativeTo(null);
         generarDialogo(); 
         setVisible(true);
     }
     private void generarDialogo(){
-        //setLayout(new GridLayout(18,0));
         getContentPane().setLayout(null);
         caja1 = new JTextField();
         caja2 = new JTextField();
         caja3 = new JTextField();
+        genero= new JComboBox(EnumGenero.values());
+        nacion= new JComboBox(EnumNacionalidades.values());
         //caja4 = new JTextField();
         etiquetacaja1= new JLabel("INGRESE EL NOMBRE DEL ARTISTA");
         etiquetacaja1.setForeground(Color.BLUE);
@@ -72,12 +77,12 @@ public class DialogoArtista extends JDialog implements ActionListener {
         caja1.setBounds(0, 26, 400, 23);
         getContentPane().add(etiquetacaja2,BorderLayout.NORTH);
         etiquetacaja2.setBounds(0,55,400,17);
-        getContentPane().add(caja2,BorderLayout.NORTH);
-        caja2.setBounds(0,72,400,23);
+        getContentPane().add(genero,BorderLayout.NORTH);
+        genero.setBounds(0,72,400,23);
         getContentPane().add(etiquetacaja3,BorderLayout.NORTH);
         etiquetacaja3.setBounds(0,115, 400, 23);
-        getContentPane().add(caja3,BorderLayout.NORTH);
-        caja3.setBounds(0,148,400, 23);
+        getContentPane().add(nacion,BorderLayout.NORTH);
+        nacion.setBounds(0,148,400, 23);
         getContentPane().add(lectura,BorderLayout.NORTH);
         lectura.setBounds(100, 247, 200, 23);
         ImageIcon a= new ImageIcon("imagenes/notas-musicales.PNG");
@@ -94,12 +99,18 @@ public class DialogoArtista extends JDialog implements ActionListener {
             String genero;
             String nacionalidad;
             nombre=caja1.getText();
-            genero=caja2.getText();
-            nacionalidad=caja3.getText();
-            menuP.ponerArtista(nombre, genero, nacionalidad, imagen);
-            setVisible(false);
-            imagenArtista(imagen);
-            dispose();
+            genero=this.genero.getSelectedItem().toString();
+            nacionalidad=this.nacion.getSelectedItem().toString();
+            if ((genero=="SELECCIONE")||(nacionalidad=="SELECCIONE")||(caja1.getText().equals(""))){
+                JOptionPane.showMessageDialog(this, "DEBE LLENAR TODOS LOS CAMPOS", "MENSAJE", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                menuP.ponerArtista(nombre, genero, nacionalidad, imagen);
+                setVisible(false);
+                imagenArtista(imagen);
+                menuP.actualizarImagen(imagen);
+                dispose();   
+            }
        break;
            case b1:
                DialogoBusqueda a= new DialogoBusqueda(this);
