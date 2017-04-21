@@ -33,7 +33,7 @@ public class menuPrincipal extends JFrame {
       
       /**
        * creacionn de los paneles
-       * constructor
+       * constructor ubicacion de los paneles
        */
     public menuPrincipal() {
         setTitle("DISCO-TIENDA");
