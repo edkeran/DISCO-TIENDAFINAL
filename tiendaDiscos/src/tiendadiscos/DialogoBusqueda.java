@@ -12,8 +12,10 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author Toshiba
+ * aqui se crea un archivo tipo File y se crea el objeto JFilChoose 
+ * tambien se definiran los filtros para saber que tipo de archivo recibira la imagen
+ * @author @author EDGAR KREICY
+ * @author MICHAEL CARDENAS
  */
 public class DialogoBusqueda extends JDialog{
     private JFileChooser archivo;

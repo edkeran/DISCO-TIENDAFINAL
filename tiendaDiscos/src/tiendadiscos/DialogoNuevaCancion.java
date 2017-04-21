@@ -18,8 +18,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
- *
- * @author EDGAR
+ * creacion canciones
+ * @author EDGAR KREICY
+ * @author MICHAEL CARDENAS
  */
 public class DialogoNuevaCancion extends JDialog implements ActionListener{
     String disco;
@@ -32,6 +33,14 @@ public class DialogoNuevaCancion extends JDialog implements ActionListener{
     JLabel etiqueta3;
     menuPrincipal menu;
     JButton lectura;
+    
+    /**
+     * String
+     * class
+     * @param disco
+     * @param artista
+     * @param aux 
+     */
     public DialogoNuevaCancion(String disco, String artista,menuPrincipal aux) {
         this.menu=aux;
         this.disco = disco;
@@ -56,7 +65,10 @@ public class DialogoNuevaCancion extends JDialog implements ActionListener{
         add(lectura,BorderLayout.NORTH);
         setVisible(true);
     }
-
+/**
+ * acciones
+ * @param ae 
+ */
     @Override
     public void actionPerformed(ActionEvent ae) {
         String nombreCancion;

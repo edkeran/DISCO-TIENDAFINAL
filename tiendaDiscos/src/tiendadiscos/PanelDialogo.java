@@ -14,12 +14,18 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-/**
- * @author EDGAR
+/*
+
+ * @author EDGAR KREICY
+ * @author MICHAEL CARDENAS
  */
 public class PanelDialogo extends JDialog{
     private JLabel artista;
 
+    /**
+     * String
+     * @param dir 
+     */
     public PanelDialogo(String dir) {
         setSize(400,400);
         setBackground(Color.WHITE);

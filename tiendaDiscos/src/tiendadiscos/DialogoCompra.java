@@ -14,8 +14,8 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 
 /**
- *
- * @author EDGAR
+ * aqui se definen los metodos y se configura para la compra
+ * @@author EDGAR KREICY
  */
 public class DialogoCompra extends JDialog implements ActionListener{ 
     double precio;
@@ -29,6 +29,17 @@ public class DialogoCompra extends JDialog implements ActionListener{
     JButton boton;
     JButton cancelar;
     menuPrincipal padre;
+    
+    /**
+     * constructor
+     * double
+     * menuPrincipal   
+     * String
+     * @param precio
+     * @param ayu
+     * @param año
+     * @param nombre 
+     */
     public DialogoCompra(double precio, menuPrincipal ayu,String año,String nombre) {
         setSize(400,300);
         this.padre=ayu;
@@ -54,7 +65,10 @@ public class DialogoCompra extends JDialog implements ActionListener{
         cancelar.setActionCommand(cancel);
         setVisible(true);
     }
-
+/**
+ * Accion botones
+ * @param ae 
+ */
     @Override
     public void actionPerformed(ActionEvent ae) {
        switch (ae.getActionCommand()){

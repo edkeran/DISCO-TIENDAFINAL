@@ -13,14 +13,19 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author EDGAR
+ * genera el recibo  de compra
+ * @author EDGAR KREICY
  */
 public class Recibo extends JDialog {
     JTable tabla;
     DefaultTableModel dtm;
     Object[] data;
     menuPrincipal menu;
+    
+    /**
+     * class
+     * @param aux 
+     */
     public Recibo(menuPrincipal aux) {
         setSize(600,600);
         menu=aux;
@@ -36,6 +41,10 @@ public class Recibo extends JDialog {
         add(scrollPane);
         
     }
+    /**
+     * muestra los datos finales en cada columna
+     * @param Precio 
+     */
     public void actualizarRecibo(double Precio){
         data = new Object[4];        
         data[0] = Precio;
@@ -43,6 +52,9 @@ public class Recibo extends JDialog {
         data[2]="";
         dtm.addRow(data);     
     }
+    /**
+     * imprime la informacion total
+     */
     public void visualizar(){
         data = new Object[4];
         data[0]="";

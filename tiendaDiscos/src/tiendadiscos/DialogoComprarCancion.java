@@ -17,11 +17,10 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author EDGAR
+ *aqui se comprara la cancion 
+ * se maneran los botones necesarios y igualmente los JDialogos
+ * @author EDGAR KREICY
  */
-
-
 public class DialogoComprarCancion extends JDialog implements ActionListener {
     private menuPrincipal menuPrin;
     private String nombre;
@@ -34,6 +33,11 @@ public class DialogoComprarCancion extends JDialog implements ActionListener {
     private static final String disc= "disco";
     private static final String artista="artista"; 
     private static final String cancio="musica";
+    
+    /**
+     * menuPrincipal clase
+     * @param aux 
+     */
     public DialogoComprarCancion(menuPrincipal aux) {
         menuPrin=aux;
         art=new comboBox();
@@ -53,6 +57,10 @@ public class DialogoComprarCancion extends JDialog implements ActionListener {
         add(seleccion,BorderLayout.NORTH);
         setVisible(true);
     }
+    /**
+     * creacion jcombobox
+     * 
+     */
     private void pintarJDialog(){
         String aux;
         art=new comboBox();
@@ -77,6 +85,12 @@ public class DialogoComprarCancion extends JDialog implements ActionListener {
         setVisible(true);
         repaint();
     }
+    
+    /**
+     * combbox
+     * String
+     * @param disco 
+     */
     private void PintarCanciones(String disco){
         String aux;
         art=new comboBox();
@@ -103,6 +117,11 @@ public class DialogoComprarCancion extends JDialog implements ActionListener {
         setVisible(true);
         repaint();
     }
+    
+    /**
+     * acciones
+     * @param ae 
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         switch (ae.getActionCommand()){

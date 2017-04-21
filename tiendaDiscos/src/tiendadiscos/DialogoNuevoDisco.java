@@ -14,8 +14,11 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+
 /**
- * @author EDGAR
+ * creacion del disco
+ * @author EDGAR KREICY
  */
 public class DialogoNuevoDisco extends JDialog implements ActionListener{
     private menuPrincipal padre;
@@ -32,7 +35,12 @@ public class DialogoNuevoDisco extends JDialog implements ActionListener{
     private String gen;
     private String nacion;
     private String nombArt;
-    
+    /**
+     * class
+     * String
+     * @param aux
+     * @param artista 
+     */
     public DialogoNuevoDisco(menuPrincipal aux, String artista) {
         padre= aux;
         nombArt=artista;
@@ -63,6 +71,11 @@ public class DialogoNuevoDisco extends JDialog implements ActionListener{
         add(boton1,BorderLayout.NORTH);
         setVisible(true);
     }
+    /**
+     * busca el artista existente y le añade el genero
+     * String
+     * @param artista 
+     */
     private void generarEtiquetaArtista(String artista){
         for (NodoArtista ar:padre.artistas){
             if (ar.getNombreArtista()==artista){
@@ -72,7 +85,10 @@ public class DialogoNuevoDisco extends JDialog implements ActionListener{
         }
     
     }
-
+/**
+ * acciones
+ * @param ae 
+ */
     @Override
     public void actionPerformed(ActionEvent ae) {
        String nombreDisco;

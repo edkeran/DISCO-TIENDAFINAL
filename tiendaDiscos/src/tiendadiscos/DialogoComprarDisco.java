@@ -17,8 +17,8 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author EDGAR
+ * se pediran los datos necesarios para compra de  un disco
+ * @author EDGAR KREICY
  */
 
 
@@ -31,6 +31,11 @@ public class DialogoComprarDisco extends JDialog implements ActionListener {
     NodoArtista artista1;
     private static final String disc= "disco";
     private static final String artista="artista"; 
+    
+    /**
+     * class menuPrincipal
+     * @param aux 
+     */
     public DialogoComprarDisco(menuPrincipal aux) {
         menuPrin=aux;
         art=new comboBox();
@@ -50,6 +55,9 @@ public class DialogoComprarDisco extends JDialog implements ActionListener {
         add(seleccion,BorderLayout.NORTH);
         setVisible(true);
     }
+   /**
+    *añade al combobox
+    */
     private void pintarJDialog(){
         String aux;
         art=new comboBox();
@@ -74,6 +82,10 @@ public class DialogoComprarDisco extends JDialog implements ActionListener {
         setVisible(true);
         repaint();
     }
+    /**
+     * acciones
+     * @param ae 
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         switch (ae.getActionCommand()){
@@ -113,6 +125,12 @@ public class DialogoComprarDisco extends JDialog implements ActionListener {
             }
         }
     }
+    /**
+     * valida que la lista de canciones exista y no se encuentre vacia
+     * String
+     * @param NombreDisco
+     * @return 
+     */
     boolean validarCancion(String NombreDisco){
         int cont=0;
         for (NodoArtista a:menuPrin.artistas){

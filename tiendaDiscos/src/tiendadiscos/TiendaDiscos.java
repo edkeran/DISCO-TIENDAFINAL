@@ -6,8 +6,9 @@
 package tiendadiscos;
 
 /**
- *
- * @author EDGAR
+ * 
+ * @author EDGAR KREYCY
+ * @author MICHAEL CARDENAS
  */
 public class TiendaDiscos {
 

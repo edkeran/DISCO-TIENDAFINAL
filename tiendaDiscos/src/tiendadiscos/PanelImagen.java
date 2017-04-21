@@ -14,12 +14,16 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 /**
- *
- * @author EDGAR
+ * imagen principal del programa
+ * @author EDGAR KREICY
+ * @author MICHAEL CARDENAS
  */
 public class PanelImagen extends JPanel {
     private JLabel imagen;
     
+    /**
+     * caracteristica de la imagen como ubicacion color de fondo y creacion del recuadro JLabel
+     */
     public PanelImagen() {        
         setBackground(Color.GRAY);
         FlowLayout layout = new FlowLayout();
@@ -33,6 +37,10 @@ public class PanelImagen extends JPanel {
         setBackground(Color.WHITE);
         setBorder(new LineBorder(Color.GRAY));
     }
+    /**
+     * String
+     * @param dir 
+     */
     public PanelImagen(String dir){
         setBackground(Color.GRAY);
         FlowLayout layout = new FlowLayout();

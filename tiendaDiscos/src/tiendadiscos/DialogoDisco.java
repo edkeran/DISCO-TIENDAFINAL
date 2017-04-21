@@ -15,7 +15,9 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
- * @author EDGAR
+ * creacion del disco
+ * @author EDGAR KREICY
+ * @author MICHAEL CARDENAS
  */
 public class DialogoDisco extends JDialog implements ActionListener{
     private menuPrincipal menuPrin;
@@ -23,6 +25,11 @@ public class DialogoDisco extends JDialog implements ActionListener{
     private comboBox art;
     private JButton seleccion;
     NodoArtista artista1;
+    
+    /**
+     * class menuPrincipal
+     * @param aux 
+     */
     public DialogoDisco(menuPrincipal aux) {
         menuPrin=aux;
         art=new comboBox();
@@ -41,7 +48,10 @@ public class DialogoDisco extends JDialog implements ActionListener{
         add(seleccion,BorderLayout.NORTH);
         setVisible(true);
     }
-
+/**
+ * acciones
+ * @param ae 
+ */
     @Override
     public void actionPerformed(ActionEvent ae) {
         nombre=art.getSelectedItem().toString();

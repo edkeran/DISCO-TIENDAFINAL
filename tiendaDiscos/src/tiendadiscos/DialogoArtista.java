@@ -18,9 +18,12 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
 /**
- * @author EDGAR
+ * se pediran los datos del cantante igualmente la foto aqui se crea el artista
+ * @author EDGAR KREICY
  */
+
 public class DialogoArtista extends JDialog implements ActionListener {
     private JTextField caja1;
     private JTextField caja2;
@@ -40,6 +43,11 @@ public class DialogoArtista extends JDialog implements ActionListener {
     private static final String b1="imagen";
     private static final String b2="lectura";
     PanelDialogo a; 
+    
+    /**
+     * CLASE PRINCIPAL menuPrincipal
+     * @param aux 
+     */
     public DialogoArtista(menuPrincipal aux) {
         menuP=aux;
         setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -49,6 +57,10 @@ public class DialogoArtista extends JDialog implements ActionListener {
         generarDialogo(); 
         setVisible(true);
     }
+    
+    /**
+     * ceacion de espacios de textos para pedir campos
+     */
     private void generarDialogo(){
         getContentPane().setLayout(null);
         caja1 = new JTextField();
@@ -91,6 +103,11 @@ public class DialogoArtista extends JDialog implements ActionListener {
         getContentPane().add(k);
         k.setBounds(0, 0, 400,400);
     }
+    
+    /**
+     * lo que hara cada boton
+     * @param ae 
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
        switch(ae.getActionCommand()){
@@ -118,14 +135,27 @@ public class DialogoArtista extends JDialog implements ActionListener {
        }
        
     }
+    
+    /**
+     * String
+     * @param imagen 
+     */
     protected void imagenArtista(String imagen){
         a= new PanelDialogo(imagen);
     }
 
+    /**
+     * 
+     * @return imagen
+     */
     public String getImagen() {
         return imagen;
     }
 
+    /**
+     * String
+     * @param imagen 
+     */
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }

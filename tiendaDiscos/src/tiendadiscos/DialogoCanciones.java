@@ -11,6 +11,13 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
+
+/**
+ * aqui se muestran los artistas ya creados por el usuario para crear las canciones 
+ * @author EDGAR KREICY
+ * @author MICHAEL CARDENAS
+ * 
+ */
 public class DialogoCanciones extends JDialog implements ActionListener {
     private menuPrincipal menuPrin;
     private String nombre;
@@ -20,6 +27,11 @@ public class DialogoCanciones extends JDialog implements ActionListener {
     NodoArtista artista1;
     private static final String disc= "disco";
     private static final String artista="artista"; 
+    
+    /**
+     * constructor
+     * @param aux 
+     */
     public DialogoCanciones(menuPrincipal aux) {
         menuPrin=aux;
         art=new comboBox();
@@ -39,6 +51,9 @@ public class DialogoCanciones extends JDialog implements ActionListener {
         add(seleccion,BorderLayout.NORTH);
         setVisible(true);
     }
+    /**
+     * creacion combobox de opciones
+     */
     private void pintarJDialog(){
         String aux;
         art=new comboBox();
@@ -63,6 +78,10 @@ public class DialogoCanciones extends JDialog implements ActionListener {
         setVisible(true);
         repaint();
     }
+    /**
+     * accion botones
+     * @param ae 
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         switch (ae.getActionCommand()){

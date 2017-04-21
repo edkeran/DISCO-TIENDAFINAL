@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author EDGAR
+ * manejara los discos de cada cantante a crear
+ * @author EDGAR KREICY
+ * @author MICHAEL CARDENAS
  */
 public class NodoDisco {
     private double precio;
@@ -20,7 +21,13 @@ public class NodoDisco {
     private NodoCanciones aux;
     List <NodoCanciones> canciones = new ArrayList<NodoCanciones>();
     
-    
+    /**
+     * recibe Strings
+     * recible double
+     * @param nombreC
+     * @param duracion
+     * @param prec 
+     */
     public void nuevaCancion(String nombreC,String duracion,double prec){
         aux= new NodoCanciones();
         aux.setNombreCancion(nombreC);
@@ -28,39 +35,70 @@ public class NodoDisco {
         aux.setDuracion(duracion);
         canciones.add(aux);
     }
+    /**
+     * busca la cancion creada en  la litstas
+     */
     public void buscarCanciones(){
         for (NodoCanciones ayu: canciones){
             System.out.println(ayu.getNombreCancion());
         }
     }
+    
+    /**
+     * 
+     * @return precio
+     */
     public double getPrecio() {
         return precio;
     }
-
+    
+    /**
+     * recible double
+     * @param precio 
+     */
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-
+/**
+ * 
+ * @return nombreDisco
+ */
     public String getNombreDisco() {
         return nombreDisco;
     }
-
+/**
+ * String
+ * @param nombreDisco 
+ */
     public void setNombreDisco(String nombreDisco) {
         this.nombreDisco = nombreDisco;
     }
-
+/**
+ * 
+ * @return año
+ */
     public String getAño() {
         return año;
     }
-
+/**
+ * String
+ * @param año 
+ */
     public void setAño(String año) {
         this.año = año;
     }
-
+/**
+ * 
+ * @return canciones
+ */
     public List<NodoCanciones> getCanciones() {
         return canciones;
     }
 
+    /**
+     * List
+     * @param canciones 
+     */
     public void setCanciones(List<NodoCanciones> canciones) {
         this.canciones = canciones;
     }

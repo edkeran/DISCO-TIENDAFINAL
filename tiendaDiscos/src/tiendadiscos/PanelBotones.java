@@ -14,8 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- *
- * @author EDGAR
+ * apariencia de los botones principales del menuPrincipal
+ * @author EDGAR KREICY
+ * @author MICHAEL CARDENAS
  */
 public class PanelBotones extends JPanel implements ActionListener{
      
@@ -44,7 +45,11 @@ public class PanelBotones extends JPanel implements ActionListener{
         private static final String CANCION = "CANCIONES";
         
         private static final String NDisco="DISCON";
-
+/**
+ * creacion objetos JButton
+ * class
+ * @param aux 
+ */
     public PanelBotones(menuPrincipal aux) {
         
         menu=aux;
@@ -82,7 +87,10 @@ public class PanelBotones extends JPanel implements ActionListener{
         btnFinalizarCompra.addActionListener(this);
         add(btnFinalizarCompra);
     }
-
+/**
+ * acciones
+ * @param ae 
+ */
     @Override
     public void actionPerformed(ActionEvent ae) {
          switch (ae.getActionCommand()) {
